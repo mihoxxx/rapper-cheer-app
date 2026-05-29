@@ -23,7 +23,7 @@ body {
   padding: 24px;
 }
 
-.omikuji-box {
+.cheer-box {
   width: min(100%, 420px);
   padding: 34px 24px 28px;
   text-align: center;
@@ -89,7 +89,7 @@ button:focus-visible {
     padding: 16px;
   }
 
-  .omikuji-box {
+  .cheer-box {
     padding: 28px 18px 22px;
   }
 
