@@ -1,7 +1,7 @@
 :root {
   font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
-  color: #21313c;
-  background: #f7efe7;
+  color: #24233a;
+  background: #f5f1ff;
 }
 
 * {
@@ -12,8 +12,9 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(255, 189, 129, 0.42), transparent 34%),
-    linear-gradient(160deg, #fff8ef 0%, #f4e7dc 48%, #eaf4f2 100%);
+    radial-gradient(circle at top left, rgba(255, 211, 109, 0.5), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(119, 221, 255, 0.35), transparent 32%),
+    linear-gradient(160deg, #fff8fd 0%, #eef4ff 52%, #fff7df 100%);
 }
 
 .app {
@@ -23,19 +24,19 @@ body {
   padding: 24px;
 }
 
-.cheer-box {
+.character-box {
   width: min(100%, 420px);
   padding: 34px 24px 28px;
   text-align: center;
   background: rgba(255, 255, 255, 0.88);
   border: 1px solid rgba(80, 91, 98, 0.1);
   border-radius: 8px;
-  box-shadow: 0 20px 50px rgba(81, 65, 49, 0.18);
+  box-shadow: 0 20px 50px rgba(55, 48, 98, 0.18);
 }
 
 .eyebrow {
   margin: 0 0 8px;
-  color: #c2603a;
+  color: #7b4bd6;
   font-size: 0.9rem;
   font-weight: 700;
 }
@@ -52,9 +53,9 @@ h1 {
   place-items: center;
   margin: 28px 0;
   padding: 22px;
-  color: #2f4652;
-  background: #fffaf4;
-  border: 2px solid #f2d0b7;
+  color: #2d3358;
+  background: #fffdf8;
+  border: 2px solid #dacbff;
   border-radius: 8px;
   font-size: 1.22rem;
   font-weight: 700;
@@ -67,12 +68,12 @@ button {
   border: 0;
   border-radius: 8px;
   color: #ffffff;
-  background: #d65f38;
+  background: #7651dc;
   font: inherit;
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 10px 20px rgba(178, 74, 39, 0.24);
+  box-shadow: 0 10px 20px rgba(88, 68, 174, 0.26);
 }
 
 button:active {
@@ -80,7 +81,7 @@ button:active {
 }
 
 button:focus-visible {
-  outline: 4px solid rgba(214, 95, 56, 0.28);
+  outline: 4px solid rgba(118, 81, 220, 0.28);
   outline-offset: 4px;
 }
 
@@ -89,7 +90,7 @@ button:focus-visible {
     padding: 16px;
   }
 
-  .cheer-box {
+  .character-box {
     padding: 28px 18px 22px;
   }
 
