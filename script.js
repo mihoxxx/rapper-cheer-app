@@ -261,6 +261,37 @@ const rapperName = document.querySelector("#rapperName");
 const rapperEra = document.querySelector("#rapperEra");
 const messageElement = document.querySelector("#message");
 const drawButton = document.querySelector("#drawButton");
+let remainingRapperIndexes = [];
+let lastRapperIndex = null;
+
+function shuffleIndexes(indexes) {
+  for (let index = indexes.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [indexes[index], indexes[swapIndex]] = [indexes[swapIndex], indexes[index]];
+  }
+
+  return indexes;
+}
+
+function refillRapperDeck() {
+  remainingRapperIndexes = shuffleIndexes(rappers.map((_, index) => index));
+
+  if (lastRapperIndex !== null && remainingRapperIndexes[0] === lastRapperIndex) {
+    [remainingRapperIndexes[0], remainingRapperIndexes[1]] = [
+      remainingRapperIndexes[1],
+      remainingRapperIndexes[0]
+    ];
+  }
+}
+
+function drawNextRapper() {
+  if (remainingRapperIndexes.length === 0) {
+    refillRapperDeck();
+  }
+
+  lastRapperIndex = remainingRapperIndexes.pop();
+  return rappers[lastRapperIndex];
+}
 
 async function getPhoto(rapper) {
   if (photoCache.has(rapper.wikiTitle)) {
@@ -284,8 +315,7 @@ async function getPhoto(rapper) {
 }
 
 async function showRapper() {
-  const randomIndex = Math.floor(Math.random() * rappers.length);
-  const rapper = rappers[randomIndex];
+  const rapper = drawNextRapper();
 
   rapperName.textContent = rapper.name;
   rapperEra.textContent = rapper.era;
