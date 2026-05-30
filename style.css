@@ -62,8 +62,10 @@ h1 {
 
 .photo-frame img {
   display: block;
-  object-fit: cover;
-  background: #24272d;
+  object-fit: contain;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 241, 0.08), transparent),
+    #24272d;
   border: 3px solid #191b20;
 }
 
