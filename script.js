@@ -118,6 +118,96 @@ const rappers = [
     era: "New Jersey / 1990s-2000s",
     wikiTitle: "Lauryn_Hill",
     topic: "Lauryn Hill topic: New Jersey出身。Fugeesとソロ作品を通じて、ラップと歌を深く結びつけたアーティストです。"
+  },
+  {
+    name: "Havoc",
+    era: "Queens / 1990s-2000s",
+    wikiTitle: "Havoc_(musician)",
+    topic: "Havoc topic: Mobb Deepのメンバー。冷たい質感のビートと硬派なラップで、Queensサウンドを支えました。"
+  },
+  {
+    name: "Sheek Louch",
+    era: "Yonkers / 1990s-2000s",
+    wikiTitle: "Sheek_Louch",
+    topic: "Sheek Louch topic: The LOXの一員。Yonkersの荒い空気を感じるグループサウンドで知られます。"
+  },
+  {
+    name: "Styles P",
+    era: "Yonkers / 1990s-2000s",
+    wikiTitle: "Styles_P",
+    topic: "Styles P topic: The LOXの一員。ストリート感の強い語り口と、ソロ活動でも続く安定感が魅力です。"
+  },
+  {
+    name: "Beanie Sigel",
+    era: "Philadelphia / 1990s-2000s",
+    wikiTitle: "Beanie_Sigel",
+    topic: "Beanie Sigel topic: Philadelphia出身。Roc-A-Fella周辺で、重い声と実直なストリート表現を見せました。"
+  },
+  {
+    name: "Freeway",
+    era: "Philadelphia / 2000s",
+    wikiTitle: "Freeway_(rapper)",
+    topic: "Freeway topic: Philadelphia出身。Roc-A-Fella期の2000年代East Coastサウンドで、独特な高い声が印象的です。"
+  },
+  {
+    name: "Mos Def",
+    era: "Brooklyn / 1990s-2000s",
+    wikiTitle: "Mos_Def",
+    topic: "Mos Def topic: Brooklyn出身。Black Starやソロ活動で、社会性と詩的な表現を持つMCとして評価されました。"
+  },
+  {
+    name: "Talib Kweli",
+    era: "Brooklyn / 1990s-2000s",
+    wikiTitle: "Talib_Kweli",
+    topic: "Talib Kweli topic: Brooklynを拠点に、Black Starとしても活動。言葉の意味を大切にするリリックで知られます。"
+  },
+  {
+    name: "Guru",
+    era: "Boston / New York / 1990s-2000s",
+    wikiTitle: "Guru_(rapper)",
+    topic: "Guru topic: Gang StarrのMC。落ち着いた声とジャズの香りがある作品で、East Coastの知的な面を広げました。"
+  },
+  {
+    name: "Masta Ace",
+    era: "Brooklyn / 1990s-2000s",
+    wikiTitle: "Masta_Ace",
+    topic: "Masta Ace topic: Brooklyn出身。物語性のあるアルバム作りと、長く評価される職人的なラップで知られます。"
+  },
+  {
+    name: "O.C.",
+    era: "Brooklyn / 1990s",
+    wikiTitle: "O.C._(rapper)",
+    topic: "O.C. topic: D.I.T.C.周辺のMC。1994年の『Word...Life』で、落ち着いた技巧派として存在感を示しました。"
+  },
+  {
+    name: "AZ",
+    era: "Brooklyn / 1990s-2000s",
+    wikiTitle: "AZ_(rapper)",
+    topic: "AZ topic: Brooklyn出身。Nasの『Illmatic』参加でも知られ、滑らかなフロウと都会的な表現が特徴です。"
+  },
+  {
+    name: "GZA",
+    era: "Brooklyn / 1990s-2000s",
+    wikiTitle: "GZA",
+    topic: "GZA topic: Wu-Tang Clanの一員。緻密で知的な言葉選びから、グループ内でも特に技巧派として知られます。"
+  },
+  {
+    name: "RZA",
+    era: "Staten Island / 1990s-2000s",
+    wikiTitle: "RZA",
+    topic: "RZA topic: Wu-Tang Clanの中心的プロデューサー兼MC。ざらついた音作りで90年代NYに大きな影響を与えました。"
+  },
+  {
+    name: "Inspectah Deck",
+    era: "Staten Island / 1990s-2000s",
+    wikiTitle: "Inspectah_Deck",
+    topic: "Inspectah Deck topic: Wu-Tang Clanの一員。鋭く整理されたバースで、グループの名曲に強い印象を残しました。"
+  },
+  {
+    name: "Masta Killa",
+    era: "Brooklyn / 1990s-2000s",
+    wikiTitle: "Masta_Killa",
+    topic: "Masta Killa topic: Wu-Tang Clanの一員。寡黙で落ち着いたスタイルが、グループの中で独自の味になっています。"
   }
 ];
 
