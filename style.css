@@ -1,7 +1,7 @@
 :root {
   font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
-  color: #16181d;
-  background: #f5f0e8;
+  color: #f5efe2;
+  background: #10141b;
 }
 
 * {
@@ -12,9 +12,19 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(circle at 12% 12%, rgba(239, 184, 74, 0.42), transparent 32%),
-    radial-gradient(circle at 90% 8%, rgba(41, 122, 115, 0.25), transparent 28%),
-    linear-gradient(155deg, #fff7e6 0%, #ece7dc 52%, #dce7e1 100%);
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 18% 18%, rgba(239, 184, 74, 0.45), transparent 24%),
+    radial-gradient(circle at 82% 14%, rgba(38, 166, 154, 0.35), transparent 26%),
+    radial-gradient(circle at 50% 88%, rgba(126, 54, 28, 0.42), transparent 34%),
+    linear-gradient(155deg, #0f141c 0%, #1c222b 48%, #111820 100%);
+  background-size:
+    44px 44px,
+    44px 44px,
+    auto,
+    auto,
+    auto,
+    auto;
 }
 
 .app {
@@ -28,10 +38,12 @@ body {
   width: min(100%, 430px);
   padding: 24px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(29, 32, 36, 0.12);
+  background: rgba(255, 250, 241, 0.95);
+  border: 1px solid rgba(239, 195, 111, 0.28);
   border-radius: 8px;
-  box-shadow: 0 22px 52px rgba(24, 20, 14, 0.2);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 .eyebrow {

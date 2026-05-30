@@ -208,6 +208,36 @@ const rappers = [
     era: "Brooklyn / 1990s-2000s",
     wikiTitle: "Masta_Killa",
     topic: "Masta Killa topic: Wu-Tang Clanの一員。寡黙で落ち着いたスタイルが、グループの中で独自の味になっています。"
+  },
+  {
+    name: "Cappadonna",
+    era: "Staten Island / 1990s-2000s",
+    wikiTitle: "Cappadonna",
+    topic: "Cappadonna topic: Wu-Tang周辺で活動し、1997年の『Wu-Tang Forever』期にも強い存在感を見せました。"
+  },
+  {
+    name: "Ol' Dirty Bastard",
+    era: "Brooklyn / 1990s-2000s",
+    wikiTitle: "Ol'_Dirty_Bastard",
+    topic: "Ol' Dirty Bastard topic: Wu-Tang Clanの一員。予測不能な声とキャラクターで、90年代NYに強烈な個性を残しました。"
+  },
+  {
+    name: "Foxy Brown",
+    era: "Brooklyn / 1990s-2000s",
+    wikiTitle: "Foxy_Brown_(rapper)",
+    topic: "Foxy Brown topic: Brooklyn出身。1990年代後半に、力強い声と存在感で女性MCのシーンを広げました。"
+  },
+  {
+    name: "Lil' Kim",
+    era: "Brooklyn / 1990s-2000s",
+    wikiTitle: "Lil'_Kim",
+    topic: "Lil' Kim topic: Brooklyn出身。Junior M.A.F.I.A.から登場し、ファッションとラップの両面で大きな影響を与えました。"
+  },
+  {
+    name: "Canibus",
+    era: "New York / 1990s-2000s",
+    wikiTitle: "Canibus",
+    topic: "Canibus topic: 1990年代後半に注目された技巧派MC。複雑な言葉選びとバトル色の強いスタイルで知られます。"
   }
 ];
 
