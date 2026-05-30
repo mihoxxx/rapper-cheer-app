@@ -3,18 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>今日の外国人ラッパー</title>
+    <title>今日のEast Coastラッパー</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main class="app">
-      <section class="rapper-box" aria-labelledby="app-title">
-        <p class="eyebrow">Today's hype voice</p>
-        <h1 id="app-title">今日の外国人ラッパー</h1>
-        <p id="message" class="message" aria-live="polite">
-          ボタンを押すと、オリジナルラッパーが応援してくれます。
-        </p>
-        <button id="drawButton" type="button">ラッパーに応援してもらう</button>
+      <section class="rapper-card" aria-labelledby="app-title">
+        <p class="eyebrow">1990-2005 East Coast</p>
+        <h1 id="app-title">今日のEast Coastラッパー</h1>
+
+        <figure class="photo-frame">
+          <img
+            id="rapperPhoto"
+            src=""
+            alt=""
+            hidden
+          />
+          <figcaption id="photoCredit">ボタンを押すと写真が出ます</figcaption>
+        </figure>
+
+        <div class="result" aria-live="polite">
+          <p id="rapperName" class="rapper-name">今日の1人を選ぼう</p>
+          <p id="rapperEra" class="rapper-era">ボタンを押すと、写真とフロウが出ます。</p>
+          <p id="message" class="message">
+            East Coastの空気を感じる一言をランダムで表示します。
+          </p>
+        </div>
+
+        <button id="drawButton" type="button">今日のラッパーを出す</button>
       </section>
     </main>
 

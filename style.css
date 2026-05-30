@@ -1,7 +1,7 @@
 :root {
   font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
-  color: #191922;
-  background: #f6f2ea;
+  color: #16181d;
+  background: #f5f0e8;
 }
 
 * {
@@ -12,53 +12,119 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(255, 213, 79, 0.46), transparent 34%),
-    radial-gradient(circle at bottom right, rgba(24, 188, 156, 0.28), transparent 32%),
-    linear-gradient(160deg, #fffaf0 0%, #f1f5ee 52%, #f7e8d9 100%);
+    radial-gradient(circle at 12% 12%, rgba(239, 184, 74, 0.42), transparent 32%),
+    radial-gradient(circle at 90% 8%, rgba(41, 122, 115, 0.25), transparent 28%),
+    linear-gradient(155deg, #fff7e6 0%, #ece7dc 52%, #dce7e1 100%);
 }
 
 .app {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  padding: 24px;
+  padding: 18px;
 }
 
-.rapper-box {
-  width: min(100%, 420px);
-  padding: 34px 24px 28px;
+.rapper-card {
+  width: min(100%, 430px);
+  padding: 24px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(80, 91, 98, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(29, 32, 36, 0.12);
   border-radius: 8px;
-  box-shadow: 0 20px 50px rgba(38, 35, 27, 0.18);
+  box-shadow: 0 22px 52px rgba(24, 20, 14, 0.2);
 }
 
 .eyebrow {
   margin: 0 0 8px;
-  color: #b14d20;
-  font-size: 0.9rem;
-  font-weight: 700;
+  color: #9d481e;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 h1 {
+  margin: 0 0 20px;
+  font-size: clamp(1.9rem, 8vw, 3rem);
+  line-height: 1.12;
+}
+
+.photo-frame {
   margin: 0;
-  font-size: clamp(2rem, 9vw, 3.2rem);
-  line-height: 1.1;
+}
+
+.photo-frame img,
+.photo-frame::before {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+}
+
+.photo-frame img {
+  display: block;
+  object-fit: cover;
+  background: #24272d;
+  border: 3px solid #191b20;
+}
+
+.photo-frame img[hidden] {
+  display: none;
+}
+
+.photo-frame::before {
+  content: "EAST COAST";
+  display: grid;
+  place-items: center;
+  color: #fff5dc;
+  background:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.5), transparent),
+    #1f6f64;
+  border: 3px solid #191b20;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.photo-frame:has(img:not([hidden]))::before {
+  display: none;
+}
+
+figcaption {
+  min-height: 20px;
+  margin-top: 8px;
+  color: #60636c;
+  font-size: 0.78rem;
+}
+
+.result {
+  margin: 18px 0;
+  padding: 18px;
+  background: #fffaf1;
+  border: 2px solid #efc36f;
+  border-radius: 8px;
+}
+
+.rapper-name {
+  margin: 0;
+  color: #15171c;
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.rapper-era {
+  margin: 8px 0 0;
+  color: #56605f;
+  font-size: 0.92rem;
+  font-weight: 700;
 }
 
 .message {
-  min-height: 132px;
+  min-height: 104px;
   display: grid;
   place-items: center;
-  margin: 28px 0;
-  padding: 22px;
-  color: #252a31;
-  background: #fffdf7;
-  border: 2px solid #f0c57f;
-  border-radius: 8px;
-  font-size: 1.22rem;
-  font-weight: 700;
+  margin: 14px 0 0;
+  color: #232830;
+  font-size: 1.1rem;
+  font-weight: 800;
   line-height: 1.65;
 }
 
@@ -70,10 +136,10 @@ button {
   color: #ffffff;
   background: #1f6f64;
   font: inherit;
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.08rem;
+  font-weight: 900;
   cursor: pointer;
-  box-shadow: 0 10px 20px rgba(31, 111, 100, 0.26);
+  box-shadow: 0 10px 22px rgba(31, 111, 100, 0.28);
 }
 
 button:active {
@@ -87,15 +153,19 @@ button:focus-visible {
 
 @media (max-width: 420px) {
   .app {
+    padding: 14px;
+  }
+
+  .rapper-card {
+    padding: 20px 16px;
+  }
+
+  .result {
     padding: 16px;
   }
 
-  .rapper-box {
-    padding: 28px 18px 22px;
-  }
-
   .message {
-    min-height: 150px;
-    font-size: 1.12rem;
+    min-height: 128px;
+    font-size: 1rem;
   }
 }
