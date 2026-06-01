@@ -308,6 +308,33 @@ function stopPreview() {
   previewAudio.load();
 }
 
+function normalizeArtistName(name) {
+  return name
+    .toLowerCase()
+    .replace(/^the\s+/, "")
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function getArtistAliases(rapper) {
+  const aliases = [rapper.name, rapper.name.replace(/^The\s+/i, "")];
+
+  if (rapper.name === "Mos Def") {
+    aliases.push("Yasiin Bey");
+  }
+
+  if (rapper.name === "The Notorious B.I.G.") {
+    aliases.push("Notorious B.I.G.", "Biggie Smalls");
+  }
+
+  return new Set(aliases.map(normalizeArtistName));
+}
+
+function isFeaturedTrack(trackName = "") {
+  return /\b(feat\.?|featuring|ft\.?)\b/i.test(trackName);
+}
+
 async function getPreview(rapper) {
   if (previewCache.has(rapper.name)) {
     return previewCache.get(rapper.name);
@@ -328,16 +355,20 @@ async function getPreview(rapper) {
   }
 
   const data = await response.json();
-  const artistName = rapper.name.toLowerCase().replace(/^the /, "");
-  const result = data.results.find((item) => {
-    const itemArtist = item.artistName?.toLowerCase() || "";
-    return item.previewUrl && itemArtist.includes(artistName);
-  }) || data.results.find((item) => item.previewUrl);
+  const artistAliases = getArtistAliases(rapper);
+  const mainArtistResults = data.results.filter((item) => {
+    const itemArtist = normalizeArtistName(item.artistName || "");
+    return item.previewUrl && artistAliases.has(itemArtist);
+  });
+  const result =
+    mainArtistResults.find((item) => !isFeaturedTrack(item.trackName)) ||
+    mainArtistResults[0];
 
   const preview = result
     ? {
         previewUrl: result.previewUrl,
         trackName: result.trackName,
+        artistName: result.artistName,
         trackUrl: result.trackViewUrl
       }
     : null;
@@ -348,23 +379,23 @@ async function getPreview(rapper) {
 
 async function playPreview(rapper) {
   stopPreview();
-  audioStatus.textContent = "公式プレビューを探しています...";
+  audioStatus.textContent = "本人メインの公式プレビューを探しています...";
 
   try {
     const preview = await getPreview(rapper);
     if (!preview) {
-      audioStatus.textContent = "このラッパーの公式プレビューは見つかりませんでした。";
+      audioStatus.textContent = "本人メインの公式プレビューは見つかりませんでした。";
       return;
     }
 
     previewAudio.src = preview.previewUrl;
     previewAudio.volume = 0.45;
     await previewAudio.play();
-    audioStatus.innerHTML = `数秒だけ再生中: <a href="${preview.trackUrl}" target="_blank" rel="noreferrer">${preview.trackName}</a>（提供: iTunes）`;
+    audioStatus.innerHTML = `数秒だけ再生中: <a href="${preview.trackUrl}" target="_blank" rel="noreferrer">${preview.artistName} - ${preview.trackName}</a>（提供: iTunes）`;
 
     previewTimer = setTimeout(() => {
       stopPreview();
-      audioStatus.innerHTML = `プレビュー停止: <a href="${preview.trackUrl}" target="_blank" rel="noreferrer">${preview.trackName}</a>（提供: iTunes）`;
+      audioStatus.innerHTML = `プレビュー停止: <a href="${preview.trackUrl}" target="_blank" rel="noreferrer">${preview.artistName} - ${preview.trackName}</a>（提供: iTunes）`;
     }, 4200);
   } catch {
     audioStatus.textContent = "公式プレビューを再生できませんでした。";
@@ -398,7 +429,7 @@ async function showRapper() {
   rapperName.textContent = rapper.name;
   rapperEra.textContent = rapper.era;
   messageElement.textContent = rapper.topic;
-  audioStatus.textContent = "公式プレビューを準備しています...";
+  audioStatus.textContent = "本人メインの公式プレビューを準備しています...";
   drawButton.disabled = true;
   drawButton.textContent = "写真を読み込み中...";
   playPreview(rapper);
