@@ -51,12 +51,33 @@ body::before {
 
 body::after {
   bottom: 0;
-  height: 34vh;
+  height: 38vh;
   background:
-    linear-gradient(to top, rgba(0, 0, 0, 0.52), transparent),
-    repeating-linear-gradient(90deg, #090d12 0 28px, #141922 28px 36px, transparent 36px 58px),
-    linear-gradient(to top, #111722 0 58%, transparent 58%);
-  opacity: 0.78;
+    radial-gradient(ellipse at 16% 72%, rgba(239, 195, 111, 0.72) 0 8%, transparent 9%),
+    radial-gradient(ellipse at 72% 78%, rgba(31, 111, 100, 0.8) 0 9%, transparent 10%),
+    radial-gradient(circle at 84% 42%, rgba(214, 78, 50, 0.54) 0 5%, transparent 6%),
+    linear-gradient(118deg, transparent 0 18%, rgba(239, 195, 111, 0.42) 18% 23%, transparent 23% 33%),
+    linear-gradient(152deg, transparent 0 42%, rgba(31, 111, 100, 0.5) 42% 48%, transparent 48% 64%),
+    repeating-linear-gradient(-10deg, transparent 0 14px, rgba(255, 255, 255, 0.07) 14px 15px, transparent 15px 31px),
+    linear-gradient(to top, rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.12) 72%, transparent),
+    linear-gradient(90deg, #0a0d12 0 18%, #171d25 18% 32%, #0f151c 32% 52%, #1a2028 52% 70%, #0b1017 70%);
+  opacity: 0.9;
+}
+
+body::after {
+  content: "NYC  HIP HOP";
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding-bottom: 22px;
+  color: rgba(245, 239, 226, 0.18);
+  font-size: clamp(2.6rem, 16vw, 6rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-shadow:
+    4px 4px 0 rgba(31, 111, 100, 0.42),
+    -3px -2px 0 rgba(239, 195, 111, 0.28);
+  transform: skew(-8deg);
 }
 
 .app {
