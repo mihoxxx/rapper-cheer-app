@@ -260,7 +260,11 @@ const photoCredit = document.querySelector("#photoCredit");
 const rapperName = document.querySelector("#rapperName");
 const rapperEra = document.querySelector("#rapperEra");
 const messageElement = document.querySelector("#message");
+const audioStatus = document.querySelector("#audioStatus");
 const drawButton = document.querySelector("#drawButton");
+const previewAudio = new Audio();
+const previewCache = new Map();
+let previewTimer = null;
 let remainingRapperIndexes = [];
 let lastRapperIndex = null;
 
@@ -293,6 +297,80 @@ function drawNextRapper() {
   return rappers[lastRapperIndex];
 }
 
+function stopPreview() {
+  if (previewTimer) {
+    clearTimeout(previewTimer);
+    previewTimer = null;
+  }
+
+  previewAudio.pause();
+  previewAudio.removeAttribute("src");
+  previewAudio.load();
+}
+
+async function getPreview(rapper) {
+  if (previewCache.has(rapper.name)) {
+    return previewCache.get(rapper.name);
+  }
+
+  const searchUrl = new URL("https://itunes.apple.com/search");
+  searchUrl.search = new URLSearchParams({
+    term: rapper.name,
+    country: "US",
+    media: "music",
+    entity: "song",
+    limit: "12"
+  }).toString();
+
+  const response = await fetch(searchUrl);
+  if (!response.ok) {
+    throw new Error("Preview request failed");
+  }
+
+  const data = await response.json();
+  const artistName = rapper.name.toLowerCase().replace(/^the /, "");
+  const result = data.results.find((item) => {
+    const itemArtist = item.artistName?.toLowerCase() || "";
+    return item.previewUrl && itemArtist.includes(artistName);
+  }) || data.results.find((item) => item.previewUrl);
+
+  const preview = result
+    ? {
+        previewUrl: result.previewUrl,
+        trackName: result.trackName,
+        trackUrl: result.trackViewUrl
+      }
+    : null;
+
+  previewCache.set(rapper.name, preview);
+  return preview;
+}
+
+async function playPreview(rapper) {
+  stopPreview();
+  audioStatus.textContent = "公式プレビューを探しています...";
+
+  try {
+    const preview = await getPreview(rapper);
+    if (!preview) {
+      audioStatus.textContent = "このラッパーの公式プレビューは見つかりませんでした。";
+      return;
+    }
+
+    previewAudio.src = preview.previewUrl;
+    previewAudio.volume = 0.45;
+    await previewAudio.play();
+    audioStatus.innerHTML = `数秒だけ再生中: <a href="${preview.trackUrl}" target="_blank" rel="noreferrer">${preview.trackName}</a>（提供: iTunes）`;
+
+    previewTimer = setTimeout(() => {
+      stopPreview();
+      audioStatus.innerHTML = `プレビュー停止: <a href="${preview.trackUrl}" target="_blank" rel="noreferrer">${preview.trackName}</a>（提供: iTunes）`;
+    }, 4200);
+  } catch {
+    audioStatus.textContent = "公式プレビューを再生できませんでした。";
+  }
+}
+
 async function getPhoto(rapper) {
   if (photoCache.has(rapper.wikiTitle)) {
     return photoCache.get(rapper.wikiTitle);
@@ -320,8 +398,10 @@ async function showRapper() {
   rapperName.textContent = rapper.name;
   rapperEra.textContent = rapper.era;
   messageElement.textContent = rapper.topic;
+  audioStatus.textContent = "公式プレビューを準備しています...";
   drawButton.disabled = true;
   drawButton.textContent = "写真を読み込み中...";
+  playPreview(rapper);
 
   try {
     const photo = await getPhoto(rapper);

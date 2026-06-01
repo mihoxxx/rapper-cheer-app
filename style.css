@@ -193,6 +193,20 @@ figcaption {
   line-height: 1.65;
 }
 
+.audio-status {
+  min-height: 24px;
+  margin: 12px 0 0;
+  color: #565248;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.audio-status a {
+  color: #1f6f64;
+  font-weight: 900;
+}
+
 button {
   width: 100%;
   min-height: 56px;
@@ -265,6 +279,10 @@ button:focus-visible {
   .message {
     min-height: 108px;
     font-size: 1rem;
+  }
+
+  .audio-status {
+    font-size: 0.78rem;
   }
 
   button {
